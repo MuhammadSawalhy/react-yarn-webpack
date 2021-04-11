@@ -7,7 +7,7 @@
     "dev": "webpack serve --hot --config webpack.dev.js",
     "prod": "webpack --config webpack.dev.js",
     "lint": "eslint --fix --format=code-frame",
-    "format": "prettier --write .",
+    "format": "prettier --write --ignore-path=.eslintignore .",
     "postinstall": "husky install ./src",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable"
