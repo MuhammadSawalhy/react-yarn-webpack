@@ -1,4 +1,5 @@
 import "./style/style.scss";
+import { hot } from "react-hot-loader/root";
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
@@ -26,4 +27,6 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.querySelector("#app"));
+const HotApp = hot(App);
+
+ReactDOM.render(<HotApp />, document.querySelector("#app"));
