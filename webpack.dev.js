@@ -1,17 +1,22 @@
-const path = require("path");
+const webpack = require("webpack");
 const common = require("./webpack.common");
 const { merge } = require("webpack-merge");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = merge(common, {
   mode: "development",
   devtool: "inline-source-map",
   output: {
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "public")
+    publicPath: "/"
+  },
+  resolve: {
+    alias: {
+      "react-dom": "@hot-loader/react-dom"
+    }
   },
   devServer: {
-    contentBase: "./public"
+    historyApiFallback: true,
+    open: true,
+    hot: true
   },
-  plugins: [new MiniCssExtractPlugin({ filename: "[name].css" })]
+  plugins: [new webpack.HotModuleReplacementPlugin()]
 });
