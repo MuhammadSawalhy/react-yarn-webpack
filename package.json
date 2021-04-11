@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "webpack serve --hot --config webpack.dev.js",
     "prod": "webpack --config webpack.dev.js",
-    "postinstall": "husky install",
+    "lint": "eslint --fix --format=code-frame",
+    "format": "prettier --write .",
+    "postinstall": "husky install ./src",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable"
   },
@@ -30,6 +32,7 @@
     "css-loader": "^5.0.1",
     "css-minimizer-webpack-plugin": "^1.2.0",
     "eslint": "^7.18.0",
+    "eslint-plugin-react": "^7.23.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.0.0-beta.5",
     "husky": ">=6",
