@@ -11,13 +11,13 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       let h = hearts + HEART;
-      h = h === HEART.repeat(MAX_COUNT+1) ? HEART : h;
+      h = h === HEART.repeat(MAX_COUNT + 1) ? HEART : h;
       setHearts(h);
     }, 1000);
   }, [hearts]);
 
   return (
-    <div style={{textAlign: "center"}}>
+    <div style={{ textAlign: "center" }}>
       <h1>React</h1>
       <h1>Berry</h1>
       <h1>Webpack</h1>
