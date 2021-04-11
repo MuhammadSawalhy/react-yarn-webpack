@@ -1,21 +1,28 @@
-import './style/style.scss';
-import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
+import "./style/style.scss";
+import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
 
-const HEART = '❤️';
+const HEART = "❤️";
 
 function App() {
   let [hearts, setHearts] = useState(HEART);
 
-  useEffect(()=>{
-    setTimeOut(()=> {
+  useEffect(() => {
+    setTimeout(() => {
       let h = hearts + HEART;
       h = h === HEART.repeat(4) ? HEART : h;
       setHearts(h);
     }, 1000);
   }, [hearts]);
 
-  return <h1>React + Webpack {hearts}</h1>;
+  return (
+    <div style={{textAlign: "center"}}>
+      <h1>React</h1>
+      <h1>Berry</h1>
+      <h1>Webpack</h1>
+      <h1>{hearts}</h1>
+    </div>
+  );
 }
 
-React.render(documnet.querySelector("#app"), App)
+ReactDOM.render(<App />, document.querySelector("#app"));
