@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
 const HEART = "❤️";
+const MAX_COUNT = 5;
 
 function App() {
   let [hearts, setHearts] = useState(HEART);
@@ -10,7 +11,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       let h = hearts + HEART;
-      h = h === HEART.repeat(4) ? HEART : h;
+      h = h === HEART.repeat(MAX_COUNT+1) ? HEART : h;
       setHearts(h);
     }, 1000);
   }, [hearts]);
