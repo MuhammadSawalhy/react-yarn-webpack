@@ -20,7 +20,8 @@ Udemy front-end clone with back-end as microservices.
   - [ ] Archived
 - [ ] [Instructor Dashboard](https://www.udemy.com/instructor)
   - [ ] Create cources form
-  - [ ] 
+  - [ ] Fill the course details and content
+  - [ ] Other tabs for announcements and messeges
 - [ ] Login & signup & ...
 - [ ] Course details
 - [ ] Course content
