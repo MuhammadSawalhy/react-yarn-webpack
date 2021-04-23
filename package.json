@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack serve --config webpack.dev.js",
     "prod": "webpack --config webpack.prod.js",
-    "lint": "eslint --fix --format=codeframe",
+    "lint": "eslint --fix --format=codeframe .",
     "format": "prettier --write --ignore-path=.eslintignore .",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
@@ -47,6 +47,7 @@
     "prettier": "^2.2.1",
     "react-hot-loader": "^4.13.0",
     "sass-loader": "^10.1.1",
+    "syncpack": "^5.7.11",
     "webpack": "^5.15.0",
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.2",
