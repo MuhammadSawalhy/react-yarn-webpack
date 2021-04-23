@@ -1,0 +1,17 @@
+button {
+  border-radius: 4px;
+  background: rgb(113, 39, 211);
+  color: white;
+  padding: 0.5em 1em;
+  border: none;
+  transition: all 0.1s ease-out;
+}
+
+button:hover {
+  filter: hue-rotate(10deg);
+  transform: scale(1.1);
+}
+
+button:active {
+  transform: scale(0.9);
+}
