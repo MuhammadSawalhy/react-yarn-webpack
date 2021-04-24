@@ -1,17 +1,26 @@
 button {
+  --scale: 1;
   border-radius: 4px;
-  background: rgb(113, 39, 211);
   color: white;
   padding: 0.5em 1em;
   border: none;
   transition: all 0.1s ease-out;
+  transform: scale(var(--scale));
 }
 
 button:hover {
   filter: hue-rotate(10deg);
-  transform: scale(1.1);
+  transform: scale(calc(var(--scale) + 0.1));
 }
 
 button:active {
-  transform: scale(0.9);
+  transform: scale(var(--scale));
+}
+
+button.small {
+  --scale: 0.8;
+}
+
+button.large {
+  --scale: 1.2;
 }
