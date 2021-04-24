@@ -25,7 +25,7 @@ function App() {
       <h1>Berry</h1>
       <h1>Webpack</h1>
       <h1>{hearts}</h1>
-      <Button>Click me!</Button>
+      <Button size="medium">Click me!</Button>
     </div>
   );
 }

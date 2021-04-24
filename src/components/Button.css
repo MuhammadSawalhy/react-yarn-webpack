@@ -16,11 +16,3 @@ button:hover {
 button:active {
   transform: scale(var(--scale));
 }
-
-button.small {
-  --scale: 0.8;
-}
-
-button.large {
-  --scale: 1.2;
-}
