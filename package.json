@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "webpack serve --config webpack.dev.js",
     "prod": "webpack --config webpack.prod.js",
-    "lint": "eslint --fix --format=codeframe .",
-    "format": "prettier --write --ignore-path=.eslintignore .",
+    "analyze:dev": "webpack --config webpack.dev.js --profile --json=webpack.stats.json && webpack-bundle-analyzer ./webpack.stats.json",
+    "analyze": "webpack --config webpack.prod.js --profile --json=webpack.stats.json && webpack-bundle-analyzer ./webpack.stats.json",
+    "lint": "eslint --fix --format=codeframe ./",
+    "format": "prettier --write --ignore-path=.eslintignore ./",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
@@ -57,6 +59,7 @@
     "sass-loader": "^10.1.1",
     "syncpack": "^5.7.11",
     "webpack": "^5.15.0",
+    "webpack-bundle-analyzer": "^4.4.1",
     "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3"
