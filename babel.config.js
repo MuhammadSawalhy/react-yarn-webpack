@@ -1,8 +1,13 @@
 module.exports = {
-  presets: [["@babel/env", { modules: false }], "@babel/react"],
-  plugins: [
-    "@babel/syntax-dynamic-import",
-    "@babel/proposal-class-properties",
-    "react-hot-loader/babel"
-  ]
+  presets: [
+    [
+      "@babel/env",
+      {
+        modules: false,
+        shippedProposals: true
+      }
+    ],
+    "@babel/react"
+  ],
+  plugins: ["@babel/syntax-dynamic-import", "react-hot-loader/babel"]
 };

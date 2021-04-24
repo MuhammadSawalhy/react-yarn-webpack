@@ -1,7 +1,8 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
+    es2021: true
   },
   extends: [
     "eslint:recommended",
@@ -23,6 +24,7 @@ module.exports = {
         browser: true,
         es2021: true
       },
+      parser: "@babel/eslint-parser",
       parserOptions: {
         ecmaFeatures: {
           jsx: true
