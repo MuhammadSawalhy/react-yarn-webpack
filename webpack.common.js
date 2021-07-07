@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const isProd = process.env.NODE_ENV === "production";
+const isDev = !isProd;
 const contenthash = isProd ? ".[contenthash]" : "";
 
 module.exports = {
@@ -28,7 +29,7 @@ module.exports = {
         removeComments: true
       }
     }),
-    new MiniCssExtractPlugin({ filename: `[name]${contenthash}.css` })
+    isDev && new MiniCssExtractPlugin({ filename: `[name]${contenthash}.css` })
   ],
   module: {
     rules: [
@@ -38,18 +39,17 @@ module.exports = {
         use: "babel-loader"
       },
       {
-        test: /\.s?css$/,
+        test: /\.(s[ca]ss|css)$/,
         use: [
-          MiniCssExtractPlugin.loader, //3. Extract css into files
+          isDev ? "style-loader" : MiniCssExtractPlugin.loader, //3. Extract css into files
           {
-            //2. Turns css into commonjs
             loader: "css-loader",
             options: {
-              modules: true,
-              // localConvention: "camelCase",
-              sourceMap: true
+              modules: {
+                localIdentName: "[local]-[hash:base64:5]"
+              }
             }
-          },
+          }, // 2. Turns css into commonjs
           "sass-loader" //1. Turns sass into css
         ]
       },
