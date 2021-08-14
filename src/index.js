@@ -1,4 +1,4 @@
-import "./style/style.scss";
+import "./style/style.css";
 import { hot } from "react-hot-loader/root";
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";

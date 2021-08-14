@@ -1,4 +1,4 @@
-button {
+.btn {
   --scale: 1;
   border-radius: 4px;
   color: white;
@@ -8,11 +8,11 @@ button {
   transform: scale(var(--scale));
 }
 
-button:hover {
+.btn:hover {
   filter: hue-rotate(10deg);
   transform: scale(calc(var(--scale) + 0.1));
 }
 
-button:active {
+.btn:active {
   transform: scale(var(--scale));
 }
