@@ -44,7 +44,7 @@ module.exports = {
     removeDefaultLoaders();
     config.module.rules.push(myRules.svg);
     // use the site theme in "storybook"
-    config.entry.push(path.resolve(__dirname, "../src/style/theme-root.scss"));
+    // config.entry.push(path.resolve(__dirname, "../src/style/theme-root.scss"));
     config.resolve = config.resolve || {};
     config.resolve.alias = resolverAliases;
     return config;
