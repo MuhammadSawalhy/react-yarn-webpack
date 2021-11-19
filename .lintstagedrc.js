@@ -20,9 +20,13 @@ function prettierCmds() {
 }
 
 function eslintCmds() {
-  const files = micromatch(allStagedFiles, "**/*.js");
+  const files = micromatch(allStagedFiles, "**/*.{js,ts}(x|)");
   return files.length
-    ? [`eslint --cache --fix ${files.map(addQuotes).join(" ")}`]
+    ? [
+        `eslint --cache --fix --format=stylish --quiet ${files
+          .map(addQuotes)
+          .join(" ")}`
+      ]
     : [];
 }
 

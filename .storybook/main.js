@@ -1,26 +1,52 @@
-const myWBconfig = require("../webpack.dev.js");
+const path = require("path");
+const myRules = require("../webpack.rules.js")();
 
 module.exports = {
   core: { builder: "webpack5" },
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
-  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
+  addons: [
+    "@storybook/addon-actions",
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "storybook-react-i18next"
+  ],
   webpackFinal: (config) => {
-    // use my loader for css not the storybook css loader
-    // console.log(
-    //   JSON.stringify(
-    //     config.module.rules.filter((r) => r.test.source === "\\.css$"),
-    //     null,
-    //     2
-    //   )
-    // );
-    // process.exit();
-    config.module.rules = config.module.rules.filter(
-      (r) => r.test.source !== "\\.css$"
+    function removeDefaultLoaders() {
+      config.module.rules = config.module.rules.map((rule) => {
+        // remove svg from existing rule
+        if (rule.test.test("name.svg"))
+          return {
+            ...rule,
+            test: new RegExp(
+              rule.test.source
+                .replace("(svg|", "(")
+                .replace("|svg)", ")")
+                .replace("|svg|", "|")
+            )
+          };
+        else if (rule.test.source === "\\.css$") return myRules.sassCss;
+
+        return rule;
+      });
+    }
+
+    const aliases = require("../jsconfig.json").compilerOptions.paths;
+    const resolverAliases = Object.entries(aliases).reduce(
+      (aliasesAcc, jsConfigAlias) => {
+        const alias = jsConfigAlias[0].slice(0, -2); // remove "/*" at the end
+        const value = jsConfigAlias[1][0].slice(0, -2);
+        aliasesAcc[alias] = path.resolve(__dirname, "../", value);
+        return aliasesAcc;
+      },
+      {}
     );
-    mySassCssLoader = myWBconfig.module.rules.find(
-      (r) => r.test.source === "\\.(s[ca]ss|css)$"
-    );
-    config.module.rules.push(mySassCssLoader);
+
+    removeDefaultLoaders();
+    config.module.rules.push(myRules.svg);
+    // use the site theme in "storybook"
+    // config.entry.push(path.resolve(__dirname, "../src/style/theme-root.scss"));
+    config.resolve = config.resolve || {};
+    config.resolve.alias = resolverAliases;
     return config;
   }
 };

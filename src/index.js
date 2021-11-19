@@ -2,14 +2,17 @@ import "./style/style.css";
 import { hot } from "react-hot-loader/root";
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-
+import Language from "./Language";
 import Button from "./components/Button";
+import { init as initi18n } from "./i18n";
 
 const HEART = "❤️";
 const MAX_COUNT = 5;
 
+initi18n();
+
 function App() {
-  let [hearts, setHearts] = useState(HEART);
+  const [hearts, setHearts] = useState(HEART);
 
   useEffect(() => {
     setTimeout(() => {
@@ -21,15 +24,18 @@ function App() {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <h1>React</h1>
-      <h1>Berry</h1>
-      <h1>Webpack</h1>
+      <h1>React + yarn + webpack</h1>
+      <Language />
       <h1>{hearts}</h1>
       <Button size="medium">Click me!</Button>
     </div>
   );
 }
 
-const HotApp = hot(App);
+const AppWrapper = hot(() => (
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+));
 
-ReactDOM.render(<HotApp />, document.querySelector("#app"));
+ReactDOM.render(<AppWrapper />, document.querySelector("#app"));

@@ -10,26 +10,49 @@ A template to get start coding quickly. Use react front-end framework with the v
 > yarn storybook  # start-storybook
 ```
 
-## Notes
+## CSS modules
 
-### CSS modules
+We are using webpack@5 as the bundler for this project, the SCSS-CSS loader is by default enables what so called **_CSS modules_**. For example I use a CSS module for the [Button component](https://github.com/scicave/ta3alom-frontend/tree/main/src/components/Button). The reason to notice this type of CSS file, the CSS modules, is to make the somponent classes scoped only to the Button and not to the global scope (the whole page). This reduces the unexpected errors and _"Why it is not working?!"_. The second reason is that it is cool ✨️.
 
-We are using webpack@5 as the bundler for this project, the SCSS-CSS loader is by default enables what so called ***CSS modules***. For example I use a CSS module for the [Button component](https://github.com/scicave/ta3alom-frontend/tree/main/src/components/Button). The reason to notice this type of CSS file, the CSS modules, is to make the somponent classes scoped only to the Button and not to the global scope (the whole page). This reduces the unexpected errors and *"Why it is not working?!"*. The second reason is that it is cool ✨️.
-
-The SCSS-CSS loader is use for storybook as well to make the system coherent.
-
-### Git hooks
+## Git hooks
 
 One of the reason to use git hooks in this project is that we are using hooks in React as well :D
 
-Git hooks are hooked using *husky*. When you `git commit`, the *pre-commit* hook will start its job to *prettier* the stuff you made, *eslint* them as well, using *lint-staged*.
+Git hooks are hooked using _husky_. When you `git commit`, the _pre-commit_ hook will start its job to _prettier_ the stuff you made, _eslint_ them as well, using _lint-staged_.
 
-~~~
+```
 ✔ Preparing...
 ✔ Running tasks...
 ✔ Applying modifications...
 ✔ Cleaning up...
-~~~~
+```
+
+## storybook
+
+In order to make all these gears engage together
+
+1. some customized **webpack** configs are used for **storybook**, e.g., SCSS-CSS loader.
+2. I am using the same **i18next** config for **storybook**.
+
+## Use me as a subdirectory in a repo
+
+### git hooks
+
+You need to customize git hooks config to match your desires.
+
+1. your `./git-hooks/pre-commit`
+
+```bash
+#!/bin/sh
+cd path/to/frontend
+# ...
+```
+
+2. postintall script
+
+```bash
+"postintall": "git config --local core.hooksPath path/to/frontend/.git-hooks || echo \"failed to hook the git hooks\"",
+```
 
 ## License
 
