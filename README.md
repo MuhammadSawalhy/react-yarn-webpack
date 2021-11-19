@@ -2,6 +2,18 @@
 
 A template to get start coding quickly. Use react front-end framework with the very powerful yet difficult to configure bundler, webpack. Yarn@berry is more powerful than npm, because of the cache system and meaningful colored logs.
 
+## Features
+
+1. 🚀 Ready to use with the boring stuff setup for you
+2. 📦 Minimal **webpack** configuration
+3. 📖 Storybook
+4. 🌐 Internationalization with **react-i18next**
+5. 🔍 Linting with **eslint** and **stylelint**
+6. ✨️ Formatting with **prettier**
+7. 🎣 Git hooks to run 4 and 5 features in each commit
+8. 🏗️ Github action to run feature 4
+9. 😁 Easy import with `import Button from "_components/Button"` instead of `import Button from "../../../components/Button"`
+
 ## Scripts
 
 | command          | description                                                |
