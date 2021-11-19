@@ -7,6 +7,11 @@ A template to get start coding quickly. Use react front-end framework with the v
 ```bash
 > yarn dev        # start webpack server
 > yarn prod       # build in production mode
+> yarn analyze    # analyze your production bundle
+                  | and get packages statistics
+> yarn lint       # eslint
+> yarn slint      # stylelint
+> yarn format     # prettier
 > yarn storybook  # start-storybook
 ```
 
@@ -27,7 +32,7 @@ Git hooks are hooked using _husky_. When you `git commit`, the _pre-commit_ hook
 ✔ Cleaning up...
 ```
 
-## storybook
+## Storybook 📖
 
 In order to make all these gears engage together
 
