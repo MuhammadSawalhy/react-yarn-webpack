@@ -4,16 +4,15 @@ A template to get start coding quickly. Use react front-end framework with the v
 
 ## Scripts
 
-```bash
-> yarn dev        # start webpack server
-> yarn prod       # build in production mode
-> yarn analyze    # analyze your production bundle
-                  | and get packages statistics
-> yarn lint       # eslint
-> yarn slint      # stylelint
-> yarn format     # prettier
-> yarn storybook  # start-storybook
-```
+| command          | description                                                |
+| ---------------- | ---------------------------------------------------------- |
+| `yarn dev`       | start webpack server                                       |
+| `yarn prod`      | build in production mode                                   |
+| `yarn analyze`   | analyze your production bundle and get packages statistics |
+| `yarn lint`      | eslint                                                     |
+| `yarn slint`     | stylelint                                                  |
+| `yarn format`    | prettier                                                   |
+| `yarn storybook` | start-storybook                                            |
 
 ## CSS modules
 
