@@ -8,15 +8,13 @@ const getModuleRules = require("./webpack.rules.js");
 
 require("dotenv").config();
 
-console.log(process.env.NODE_ENV);
-process.exit();
-
 process.env.NODE_ENV =
   process.env.NODE_ENV ||
   process.argv.find((_, index) => process.argv[index - 1] === "--mode") ||
   "development";
 process.env.BABEL_ENV = process.env.NODE_ENV;
 process.env.PUBLIC_URL = process.env.PUBLIC_URL || "/";
+process.env.BACKEND_URL = process.env.BACKEND_URL || "http://localhost:8000";
 
 const isProd = process.env.NODE_ENV === "production";
 const isDev = process.env.NODE_ENV !== "production";
@@ -26,8 +24,7 @@ const rules = Object.values(getModuleRules({ isDev }));
 const env = {
   NODE_ENV: process.env.NODE_ENV,
   PUBLIC_URL: process.env.PUBLIC_URL.slice(0, -1),
-  WDS_SOCKET_PATH: process.env.WDS_SOCKET_PATH,
-  BACKEND_URL: process.env.BACKEND_URL
+  BACKEND_URL: process.env.BACKEND_URL || "http://localhost:8000"
 };
 
 const jsConfigAliases = require("./jsconfig.json").compilerOptions.paths;
