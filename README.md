@@ -10,8 +10,8 @@ A template to get start coding quickly. Use react front-end framework with the v
 4. 🌐 Internationalization with **react-i18next**
 5. 🔍 Linting with **eslint** and **stylelint**
 6. ✨️ Formatting with **prettier**
-7. 🎣 Git hooks to run 4 and 5 features in each commit
-8. 🏗️ Github action to run feature 4
+7. 🎣 Git hooks to format and lint features in each commit
+8. 🏗️ Github action to lint and test (comming soon insha'Allah)
 9. 😁 Easy import with `import Button from "_components/Button"` instead of `import Button from "../../../components/Button"`
 
 ## Scripts
