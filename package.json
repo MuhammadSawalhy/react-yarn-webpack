@@ -11,7 +11,7 @@
     "lint": "eslint --fix --format=stylish ./",
     "slint": "stylelint --ignore-path=.eslintignore ./**/*.{css,scss,sass}",
     "format": "prettier --write --ignore-path=.eslintignore ./",
-    "prepare": "git config --local core.hooksPath frontend/.git-hooks || echo \"failed to hook the git hooks\"",
+    "prepare": "git config --local core.hooksPath .git-hooks || echo \"failed to hook the git hooks\"",
     "storybook": "start-storybook -p 6006 -s ./public,./src"
   },
   "repository": {
