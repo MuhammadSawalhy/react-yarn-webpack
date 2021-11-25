@@ -63,7 +63,13 @@ module.exports = {
       new MiniCssExtractPlugin({ filename: `[name]${contenthash}.css` }),
     isProd &&
       new CopyPlugin({
-        patterns: [{ from: "public", filter: (f) => !/index\.html$/.test(f) }]
+        patterns: [
+          {
+            from: "public",
+            filter: (f) => !/index\.html$/.test(f),
+            noErrorOnMissing: true
+          }
+        ]
       })
   ].filter(Boolean),
   resolve: {
@@ -77,6 +83,14 @@ module.exports = {
       // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
       `...`,
       new CssMinimizerPlugin()
-    ]
+    ],
+    // stolen from create-react-app
+    splitChunks: {
+      chunks: "all",
+      name: isDev
+    },
+    runtimeChunk: {
+      name: (entrypoint) => `runtime-${entrypoint.name}`
+    }
   }
 };
