@@ -91,6 +91,14 @@
       "stylelint-scss"
     ]
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "postcss": {
+    "parser": "postcss-scss"
+  },
   "volta": {
     "node": "14.16.1",
     "yarn": "1.22.10"
